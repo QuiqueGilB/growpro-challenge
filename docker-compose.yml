@@ -1,20 +1,38 @@
 version: "3.9"
 
+x-growpro: &growpro
+  build:
+    context: ./
+    dockerfile: iac/docker/php/Dockerfile
+    target: final
+    args:
+      with-dev-experience: 1
+  restart: always
+  depends_on:
+    - database-dev
+    - database-test
+  volumes:
+    - ./:/app
+  networks:
+    - growpro-private
+  environment:
+    PHP_IDE_CONFIG: 'serverName=quiquegilb.growpro'
+
 services:
   php:
-    build:
-      context: ./
-      dockerfile: iac/docker/php/Dockerfile
-      target: final
-      args:
-        with-dev-experience: 1
-    volumes:
-      - ./:/app
-    environment:
-      PHP_IDE_CONFIG: 'serverName=quiquegilb.growpro'
+    <<: *growpro
+    profiles: ["growpro-blank"]
+    command: exit 0
 
-#    networks: growpro
-#
+  growpro-api:
+    <<: *growpro
+    command: "symfony server:start --no-tls --allow-http --port=8000 --dir=public"
+    networks:
+      - growpro-private
+      - growpro-public
+    ports:
+      - "8000:8000"
+
   database-dev:
     image: postgres:15-alpine
     environment:
@@ -24,7 +42,9 @@ services:
     volumes:
       - database-dev-data:/var/lib/postgresql/data:rw
     ports:
-      - "5432"
+      - "8002:5432"
+    networks:
+      - growpro-private
 
   database-test:
     image: postgres:15-alpine
@@ -34,10 +54,14 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-growpro}
     volumes:
       - database-test-data:/var/lib/postgresql/data:rw
+    networks:
+      - growpro-private
 
-#networks:
-#  growpro:
-#    name: growpro
+networks:
+  growpro-public:
+    name: growpro-public
+  growpro-private:
+    name: growpro-private
 
 volumes:
   database-dev-data:
