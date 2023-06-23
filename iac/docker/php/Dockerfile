@@ -4,10 +4,12 @@ FROM php:8.2-fpm-alpine3.18 as base
 COPY --from=composer:2.1.9 /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 
-RUN apk update && apk add --update autoconf g++ make linux-headers
+RUN apk update && apk add --update bash autoconf g++ make linux-headers
 
 RUN if [[ "${with-dev-experience}" != 0 ]] ; then  \
-        pecl install xdebug \
+        curl -sS https://get.symfony.com/cli/installer | bash  \
+        && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony \
+        && pecl install xdebug \
         && docker-php-ext-enable xdebug \
         && { \
           echo xdebug.mode=debug,coverage; \
