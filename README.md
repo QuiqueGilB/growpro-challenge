@@ -1,4 +1,4 @@
-***<p style="text-align: center;">![alt text](https://lanzadera.es/wp-content/uploads/2020/08/Growpro-1.png "GrowPro")</p>***
+***<p align="center">![alt text](https://lanzadera.es/wp-content/uploads/2020/08/Growpro-1.png "GrowPro")</p>***
 # Instructions
 - - -
 
