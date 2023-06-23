@@ -1,6 +1,6 @@
 <?php
 
-use QuiqueGilB\GrowPro\Kernel;
+use QuiquegilB\GrowPro\SharedContext\SymfonyModule\Infrastructure\Symfony\Kernel\Kernel;
 
 require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
