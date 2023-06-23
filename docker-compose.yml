@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  php:
+    build:
+      context: ./
+      dockerfile: iac/docker/php/Dockerfile
+      target: final
+      args:
+        with-dev-experience: 1
+    volumes:
+      - ./:/app
+    environment:
+      PHP_IDE_CONFIG: 'serverName=quiquegilb.growpro'
+
+#    networks: growpro
+#
+#networks:
+#  growpro:
+#    name: growpro
