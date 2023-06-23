@@ -15,6 +15,30 @@ services:
 
 #    networks: growpro
 #
+  database-dev:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-growpro}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-growpro}
+      POSTGRES_USER: ${POSTGRES_USER:-growpro}
+    volumes:
+      - database-dev-data:/var/lib/postgresql/data:rw
+    ports:
+      - "5432"
+
+  database-test:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-growpro}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-growpro}
+      POSTGRES_USER: ${POSTGRES_USER:-growpro}
+    volumes:
+      - database-test-data:/var/lib/postgresql/data:rw
+
 #networks:
 #  growpro:
 #    name: growpro
+
+volumes:
+  database-dev-data:
+  database-test-data:
