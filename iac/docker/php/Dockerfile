@@ -27,6 +27,6 @@ RUN if [[ "${with-dev-experience}" == 0 ]]; then \
       composer install \
     ;fi
 
-RUN if [[ "${with-dev-experience}" != 0 ]] ; then  \
+RUN if [[ "${with-dev-experience}" == 0 ]] ; then  \
         rm -rf /usr/bin/composer \
     ; fi
