@@ -5,6 +5,7 @@ COPY --from=composer:2.1.9 /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 
 RUN apk update && apk add --update bash autoconf g++ make linux-headers
+RUN apk add libpq-dev && docker-php-ext-install pdo pdo_pgsql
 
 RUN if [[ "${with-dev-experience}" != 0 ]] ; then  \
         curl -sS https://get.symfony.com/cli/installer | bash  \
