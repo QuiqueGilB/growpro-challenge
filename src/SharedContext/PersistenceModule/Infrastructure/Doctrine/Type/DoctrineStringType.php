@@ -6,7 +6,6 @@ namespace QuiqueGilB\GrowPro\SharedContext\PersistenceModule\Infrastructure\Doct
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\StringType;
-use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\Contract\StringConstraints;
 
 abstract class DoctrineStringType extends StringType implements DoctrineType
 {
