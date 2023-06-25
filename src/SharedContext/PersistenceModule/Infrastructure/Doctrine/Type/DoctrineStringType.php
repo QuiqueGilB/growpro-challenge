@@ -15,8 +15,8 @@ abstract class DoctrineStringType extends StringType implements DoctrineType
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        $column['length'] ??= self::length();
-        $column['fixed'] ??= self::fixed();
+        $column['length'] ??= static::length();
+        $column['fixed'] ??= static::fixed();
 
         return parent::getSQLDeclaration($column, $platform);
     }
