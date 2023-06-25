@@ -18,11 +18,19 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-            App:
+            QuiqueGilB\GrowPro\SharedContext\SharedModule:
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                type: xml
+                dir: '%kernel.project_dir%/src/SharedContext/SharedModule/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain'
+                alias: QuiqueGilB\GrowPro\SharedContext\SharedModule
+
+            QuiqueGilB\GrowPro\MainContext\RentModule:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/MainContext/RentModule/Infrastructure/Persistence/Doctrine/Mapping'
+                prefix: 'QuiqueGilB\GrowPro\MainContext\RentModule\Domain'
+                alias: QuiqueGilB\GrowPro\MainContext\RentModule
 
 when@test:
     doctrine:

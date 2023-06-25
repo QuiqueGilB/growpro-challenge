@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                        https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="QuiqueGilB\GrowPro\MainContext\RentModule\Domain\Entity\Rent"
+            table="maincontext_rentmodule_rent"
+    >
+
+
+        <field name="rentTime" type="QuiqueGilB\GrowPro\MainContext\RentModule\Domain\ValueObject\RentTime"/>
+
+        <embedded name="price"
+                  class="QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\Money"
+                  column-prefix="price"
+        />
+
+        <many-to-one field="bike" target-entity="QuiqueGilB\GrowPro\MainContext\RentModule\Domain\Entity\Bike"/>
+
+    </entity>
+</doctrine-mapping>
