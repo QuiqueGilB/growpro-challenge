@@ -22,7 +22,7 @@ abstract readonly class DurationValueObject extends ValueObject implements Simpl
 
     public function days(): float
     {
-        return $this->value->days;
+        return $this->value->d;
     }
 
     public function __toString(): string
