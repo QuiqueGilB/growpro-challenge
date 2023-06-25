@@ -20,6 +20,11 @@ abstract readonly class DurationValueObject extends ValueObject implements Simpl
         return $this->value;
     }
 
+    public function days(): float
+    {
+        return $this->value->days;
+    }
+
     public function __toString(): string
     {
         return $this->value->format(DateTimeInterface::ATOM);
