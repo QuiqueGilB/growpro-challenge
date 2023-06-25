@@ -5,6 +5,11 @@ doctrine:
         # IMPORTANT: You MUST configure your server version,
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '15'
+        types:
+            QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\Uuid: QuiqueGilB\GrowPro\SharedContext\SharedModule\Infrastructure\Persistence\Doctrine\Type\UuidType
+            QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\UpdatedAt: QuiqueGilB\GrowPro\SharedContext\SharedModule\Infrastructure\Persistence\Doctrine\Type\UpdatedAtType
+            QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\CreatedAt: QuiqueGilB\GrowPro\SharedContext\SharedModule\Infrastructure\Persistence\Doctrine\Type\CreatedAtType
+            QuiqueGilB\GrowPro\MainContext\RentModule\Domain\ValueObject\RentTime: QuiqueGilB\GrowPro\MainContext\RentModule\Infrastructure\Persistence\Doctrine\Type\RentTimeType
     orm:
         auto_generate_proxy_classes: true
         enable_lazy_ghost_objects: true
