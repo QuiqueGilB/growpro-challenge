@@ -7,7 +7,7 @@
     <mapped-superclass name="QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\Model\Aggregate">
 
         <indexes>
-            <index name="created_at_idx" columns="created_at"/>
+            <index columns="created_at"/>
         </indexes>
 
         <id name="id" column="id" type="QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\Uuid"/>
