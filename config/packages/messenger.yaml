@@ -14,11 +14,16 @@ framework:
 
             messenger.bus.command.sync:
                 middleware:
+                    - doctrine_close_connection
+                    - doctrine_transaction
             messenger.bus.command.async:
                 middleware:
+                    - doctrine_close_connection
+                    - doctrine_transaction
 
             messenger.bus.query:
                 middleware:
+                    - doctrine_close_connection
 
             messenger.bus.event:
                 default_middleware:
