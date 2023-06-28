@@ -46,6 +46,13 @@ services:
     networks:
       - growpro-private
 
+  growpro-admin:
+    build: iac/docker/growpro-admin
+    ports:
+      - "8888:3000"
+    environment:
+      REACT_APP_GROWPRO_API_URL: http://localhost:8000/api
+
   database-test:
     image: postgres:15-alpine
     environment:
