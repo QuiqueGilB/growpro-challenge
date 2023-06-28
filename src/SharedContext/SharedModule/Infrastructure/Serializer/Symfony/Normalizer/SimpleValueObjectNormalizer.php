@@ -65,6 +65,6 @@ readonly class SimpleValueObjectNormalizer implements NormalizerInterface, Denor
 
     public function getSupportedTypes(?string $format): array
     {
-        return ['*'];
+        return ['*' => false];
     }
 }
