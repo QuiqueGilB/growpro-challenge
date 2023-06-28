@@ -11,6 +11,20 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    _instanceof:
+
+        QuiqueGilB\GrowPro\SharedContext\CqrsModule\Domain\Contract\CommandHandler:
+            tags:
+                - { name: quiqueGilB.growPro.commandHandlers }
+                - { name: messenger.message_handler, bus: messenger.bus.command.sync }
+                - { name: messenger.message_handler, bus: messenger.bus.command.async }
+
+        QuiqueGilB\GrowPro\SharedContext\CqrsModule\Domain\Contract\QueryHandler:
+            tags:
+                - { name: quiqueGilB.growPro.queryHandlers }
+                - { name: messenger.message_handler, bus: messenger.bus.query }
+
+
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     QuiqueGilB\GrowPro\:
@@ -22,3 +36,22 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    QuiqueGilB\GrowPro\SharedContext\CqrsModule\Domain\Contract\CommandBus: '@quiqueGilB.growPro.command_bus.sync'
+    QuiqueGilB\GrowPro\SharedContext\CqrsModule\Domain\Contract\CommandBus $asyncCommandBus: '@quiqueGilB.growPro.command_bus.async'
+    QuiqueGilB\GrowPro\SharedContext\CqrsModule\Domain\Contract\QueryBus: '@quiqueGilB.growPro.query_bus'
+
+    quiqueGilB.growPro.command_bus.sync:
+        class: QuiqueGilB\GrowPro\SharedContext\CqrsModule\Infrastructure\CommandBus\SfMessengerCommandBus
+        arguments:
+            - '@messenger.bus.command.sync'
+
+    quiqueGilB.growPro.command_bus.async:
+        class: QuiqueGilB\GrowPro\SharedContext\CqrsModule\Infrastructure\CommandBus\SfMessengerCommandBus
+        arguments:
+            - '@messenger.bus.command.async'
+
+    quiqueGilB.growPro.query_bus:
+        class: QuiqueGilB\GrowPro\SharedContext\CqrsModule\Infrastructure\QueryBus\SfMessengerQueryBus
+        arguments:
+            - '@messenger.bus.query'
