@@ -7,6 +7,8 @@ namespace QuiqueGilB\GrowPro\Tests\Shared\Stub;
 use QuiqueGilB\GrowPro\MainContext\RentModule\Domain\Entity\Bike;
 use QuiqueGilB\GrowPro\MainContext\RentModule\Domain\Enum\BikePlan;
 use QuiqueGilB\GrowPro\MainContext\RentModule\Domain\Enum\BikeType;
+use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\CreatedAt;
+use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\UpdatedAt;
 use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\Uuid;
 
 /**
@@ -28,6 +30,8 @@ final class BikeStub extends Stub
             'id' => Uuid::v4(),
             'plan' => $this->faker->randomElement(BikePlan::cases()),
             'type' => $this->faker->randomElement(BikeType::cases()),
+            'updatedAt' => new UpdatedAt($this->faker->dateTimeImmutable()),
+            'createdAt' => new CreatedAt($this->faker->dateTimeImmutable())
         ];
     }
 }
