@@ -1,0 +1,13 @@
+framework:
+  serializer:
+    enabled: true
+    name_converter: 'serializer.name_converter.camel_case_to_snake_case'
+    enable_annotations: false
+    #    circular_reference_handler: false
+    default_context:
+      enable_max_depth: true
+      yaml_indentation: 2
+    mapping:
+      paths:
+        - "%kernel.project_dir%/src/SharedContext/SharedModule/Infrastructure/Serializer/Symfony/Mapping"
+        - "%kernel.project_dir%/src/MainContext/RentModule/Infrastructure/Serializer/Symfony/Mapping"
