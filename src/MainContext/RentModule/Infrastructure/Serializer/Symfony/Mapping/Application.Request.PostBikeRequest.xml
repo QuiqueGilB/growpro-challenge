@@ -5,7 +5,7 @@
                                 http://symfony.com/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd">
 
     <class name="QuiqueGilB\GrowPro\MainContext\RentModule\Application\Request\Bike\PostBikeRequest">
-        <attribute name="id"/>
+        <attribute name="bikeId"/>
         <attribute name="type"/>
         <attribute name="plan"/>
     </class>

@@ -5,7 +5,7 @@
         https://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="QuiqueGilB\GrowPro\MainContext\RentModule\Application\Request\Bike\PostBikeRequest">
-        <property name="id">
+        <property name="bikeId">
             <constraint name="NotBlank"/>
             <constraint name="Uuid"/>
         </property>
