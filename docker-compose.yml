@@ -3,7 +3,7 @@ version: "3.9"
 x-growpro: &growpro
   build:
     context: ./
-    dockerfile: iac/docker/php/Dockerfile
+    dockerfile: iac/docker/growpro-app/Dockerfile
     target: final
     args:
       with-dev-experience: 1
