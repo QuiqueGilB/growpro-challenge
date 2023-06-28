@@ -25,6 +25,8 @@ make start
 
 #### Run tests and coverage
 ```shell
+make c:c env=test 
+make mi env=test
 make tests
 ```
 
