@@ -13,7 +13,7 @@ abstract class Aggregate
     protected readonly CreatedAt $createdAt;
     protected UpdatedAt $updatedAt;
 
-    public function __construct(protected Uuid $id)
+    public function __construct(public readonly Uuid $id)
     {
         $this->createdAt = new CreatedAt();
         $this->updatedAt = new UpdatedAt();
