@@ -1,4 +1,12 @@
 ***<p align="center">![alt text](https://lanzadera.es/wp-content/uploads/2020/08/Growpro-1.png "GrowPro")</p>***
+# Entry points
+- - -
+| Name      | Url                       |
+|-----------|---------------------------|
+| **Api**   | http://localhost:8000/api |
+| **Admin** | http://localhost:8888     |
+
+
 # Instructions
 - - -
 
