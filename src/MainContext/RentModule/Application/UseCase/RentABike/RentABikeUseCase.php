@@ -24,8 +24,9 @@ final readonly class RentABikeUseCase
     public function __invoke(Uuid $rentId, Uuid $bikeId, RentTime $rentTime): Rent
     {
         $bike = $this->bikeRepository->byId($bikeId) ?? throw BikeNotFoundException::byId($bikeId);
+        $rentPrice = $this->calculateBikePriceRent->__invoke($bike, $rentTime);
 
-        $rent = new Rent($rentId, $bike, $rentTime, $this->calculateBikePriceRent->__invoke($bike, $rentTime));
+        $rent = new Rent($rentId, $bike, $rentTime, $rentPrice);
         $this->rentRepository->save($rent);
 
         return $rent;
