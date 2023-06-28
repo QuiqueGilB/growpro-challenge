@@ -162,7 +162,7 @@ api_platform:
 #    hub_url: null
   messenger:
     # Enabled by default with installed symfony/messenger and not installed symfony/symfony.
-    enabled: false
+    enabled: true
   elasticsearch:
     # To enable or disable Elasticsearch support.
     enabled: false
