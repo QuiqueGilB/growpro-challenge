@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace QuiqueGilB\GrowPro\SharedContext\SharedModule\Infrastructure\Serializer\Symfony\Normalizer;
 
-use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\Contract\SimpleValueObject;
-use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\DateTimeValueObject;
 use DateTimeImmutable;
 use DateTimeInterface;
+use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\Contract\SimpleValueObject;
+use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\DateTimeValueObject;
 use ReflectionClass;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -45,7 +45,7 @@ readonly class SimpleValueObjectNormalizer implements NormalizerInterface, Denor
      * @param array<string, mixed> $context
      * @throws \ReflectionException
      */
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
         $reflectionClass = new ReflectionClass($type);
         return $reflectionClass->isSubclassOf(DateTimeValueObject::class)
@@ -53,13 +53,18 @@ readonly class SimpleValueObjectNormalizer implements NormalizerInterface, Denor
             : new $type($data);
     }
 
-    public function supportsNormalization(mixed $data, string $format = null): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
         return $data instanceof SimpleValueObject;
     }
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
         return class_exists($type) && (new ReflectionClass($type))->implementsInterface(SimpleValueObject::class);
+    }
+
+    public function getSupportedTypes(?string $format): array
+    {
+        return ['*'];
     }
 }
