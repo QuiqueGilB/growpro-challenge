@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace QuiqueGilB\GrowProSharedContext\SerializerModule\Domain\Contract;
+namespace QuiqueGilB\GrowPro\SharedContext\SerializerModule\Domain\Contract;
 
 interface Serializer
 {

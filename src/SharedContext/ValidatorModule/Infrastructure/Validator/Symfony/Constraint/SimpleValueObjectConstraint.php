@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace QuiqueGilB\GrowProSharedContext\ValidatorModule\Infrastructure\Validator\Symfony\Constraint;
+namespace QuiqueGilB\GrowPro\SharedContext\ValidatorModule\Infrastructure\Validator\Symfony\Constraint;
 
 use Symfony\Component\Validator\Constraint;
 

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace QuiqueGilB\GrowProSharedContext\ValidatorModule\Infrastructure\Validator\Symfony\Constraint;
+namespace QuiqueGilB\GrowPro\SharedContext\ValidatorModule\Infrastructure\Validator\Symfony\Constraint;
 
-use QuiqueGilB\GrowProSharedContext\SharedModule\Domain\Exception\DomainException;
+use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\Exception\DomainException;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
 use Throwable;

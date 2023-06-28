@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace QuiqueGilB\GrowProSharedContext\SerializerModule\Infrastructure\Serializer;
+namespace QuiqueGilB\GrowPro\SharedContext\SerializerModule\Infrastructure\Serializer;
 
-use QuiqueGilB\GrowProSharedContext\SerializerModule\Domain\Contract\Serializer;
+use QuiqueGilB\GrowPro\SharedContext\SerializerModule\Domain\Contract\Serializer;
 use Symfony\Component\Serializer\SerializerInterface;
 
 readonly class SfSerializer implements Serializer
