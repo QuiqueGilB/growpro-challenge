@@ -200,6 +200,7 @@ api_platform:
 #      mime_types: ['application/ld+json']
 #    # ...
 #  # Global resources defaults, see in the next section.
-#  defaults:
-#  # ...
-#
+  defaults:
+    denormalization_context:
+      api_allow_update: true
+
