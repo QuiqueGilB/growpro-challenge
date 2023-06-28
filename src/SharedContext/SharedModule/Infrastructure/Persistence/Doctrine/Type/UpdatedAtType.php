@@ -6,11 +6,12 @@ namespace QuiqueGilB\GrowPro\SharedContext\SharedModule\Infrastructure\Persisten
 
 use QuiqueGilB\GrowPro\SharedContext\PersistenceModule\Infrastructure\Doctrine\Type\DoctrineDateTimeImmutableType;
 use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\CreatedAt;
+use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\UpdatedAt;
 
 final class UpdatedAtType extends DoctrineDateTimeImmutableType
 {
     public static function typeForClass(): string
     {
-        return CreatedAt::class;
+        return UpdatedAt::class;
     }
 }
