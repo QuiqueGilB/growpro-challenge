@@ -7,7 +7,7 @@
     <embeddable name="QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\Money">
 
         <field name="amount" type="decimal"/>
-        <field name="currency" type="string" length="3">
+        <field name="currency" enum-type="QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\Enum\Currency" length="3">
             <options>
                 <option name="fixed"/>
             </options>
