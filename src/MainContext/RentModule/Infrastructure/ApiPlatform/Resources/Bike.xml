@@ -6,19 +6,23 @@
 
     <resource class="QuiqueGilB\GrowPro\MainContext\RentModule\Domain\Entity\Bike"
               input="false"
-              output="false"
               shortName="Bike"
     >
         <operations>
-            <operation class="ApiPlatform\Metadata\GetCollection"/>
+            <operation class="ApiPlatform\Metadata\GetCollection"
+                       provider="QuiqueGilB\GrowPro\MainContext\RentModule\Infrastructure\ApiPlatform\Provider\BikeViewProvider"
+                       output="QuiqueGilB\GrowPro\MainContext\RentModule\Domain\View\BikeView"
+            >
+
+            </operation>
             <operation class="ApiPlatform\Metadata\Post"
                        messenger="true"
                        input="QuiqueGilB\GrowPro\MainContext\RentModule\Application\Request\Bike\PostBikeRequest"
                        status="201"
+                       output="false"
             >
             </operation>
         </operations>
-
 
     </resource>
 </resources>
