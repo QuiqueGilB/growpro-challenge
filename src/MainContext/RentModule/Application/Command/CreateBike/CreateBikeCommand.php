@@ -12,7 +12,7 @@ use QuiqueGilB\GrowPro\SharedContext\SharedModule\Domain\ValueObject\Uuid;
 final readonly class CreateBikeCommand extends Command
 {
     public function __construct(
-        public Uuid $id,
+        public Uuid $bikeId,
         public BikeType $type,
         public BikePlan $plan,
     ) {

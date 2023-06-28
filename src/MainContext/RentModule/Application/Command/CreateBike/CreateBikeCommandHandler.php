@@ -17,7 +17,7 @@ final readonly class CreateBikeCommandHandler implements CommandHandler
     public function __invoke(CreateBikeCommand $command): void
     {
         $this->createBikeUseCase->__invoke(
-            $command->id,
+            $command->bikeId,
             $command->plan,
             $command->type,
         );
