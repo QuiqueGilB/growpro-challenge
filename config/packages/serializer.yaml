@@ -9,5 +9,5 @@ framework:
       yaml_indentation: 2
     mapping:
       paths:
-        - "%kernel.project_dir%/src/SharedContext/SharedModule/Infrastructure/Serializer/Symfony/Mapping"
+#        - "%kernel.project_dir%/src/SharedContext/SharedModule/Infrastructure/Serializer/Symfony/Mapping"
         - "%kernel.project_dir%/src/MainContext/RentModule/Infrastructure/Serializer/Symfony/Mapping"
